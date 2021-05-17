@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/alex-501/Project3#readme",
   "dependencies": {
-    "node.js": "0.0.1-security"
+    "node.js": "0.0.1-security",
+    "react-media": "^1.10.0"
   }
 }
