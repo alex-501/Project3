@@ -1,0 +1,13 @@
+
+body { margin: 0;
+  font-family: 'GFS Neohellenic', sans-serif;}
+.btn-primary{
+  background-color: #17691e;
+  border-color: #5169A9;}
+
+.btn-primary:hover{
+  background-color: #17691e;
+  border-color:  #2E466F;}
+
+a{  color: #17691e;}
+a:hover{  color:  #2E466F;}
