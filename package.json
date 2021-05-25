@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "project-3",
   "main": "server.js",
+  "homepage": "https://github.com/alex-501/Project3",
   "engines": {
     "node": "12.x"
   },

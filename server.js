@@ -3,7 +3,7 @@ const express = require("express");
 const session = require("express-session");
 const path = require("path");
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5000;
 const SESSION_SECRET = process.env.SESSION_SECRET || "sample secret";
 
 const app = express();
@@ -28,11 +28,9 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Send every other request to the React app
-// Define any API routes before this runs
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
-
+ //Define any API routes before this runs
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+ 
 db.sequelize.sync().then(function() { 
   app.listen(PORT, () => {
     console.log(`🌎 ==> API server now on port ${PORT}!`);
