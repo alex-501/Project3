@@ -10,7 +10,7 @@
     "username": "b7f5fc9eeef1e0",
     "password": "873543d7",    
     "database": "heroku_10903362d553ad5",
-    "port": 3301,
+    "port": 3306,
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
