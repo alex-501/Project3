@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "project-3",
   "main": "server.js",
-  "homepage": "https://github.com/alex-501/Project3",
+  "homepage": "./client/public/index.html",
   "engines": {
     "node": "12.x"
   },
@@ -28,6 +28,7 @@
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "if-env": "^1.0.4",
+    "jquery": "^3.6.0",
     "mysql2": "^2.2.5",
     "node": "^16.1.0",
     "passport": "^0.4.1",

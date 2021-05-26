@@ -29,7 +29,7 @@ app.use(routes);
 
 // Send every other request to the React app
  //Define any API routes before this runs
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+//  res.sendFile(path.join(__dirname, "./client/build/index.html"));
  
 db.sequelize.sync().then(function() { 
   app.listen(PORT, () => {
