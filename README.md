@@ -1,8 +1,3 @@
-# Chore Hack
-
-
-![Web Screenshot](./client/public/img/WireFrame1.gif)
-
 
 ## Table of Content
 - Objective
