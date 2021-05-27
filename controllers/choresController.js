@@ -69,17 +69,12 @@ module.exports = {
           const today = new Date();
           generateReps(chore, today.getFullYear(), today.getMonth(), today.getDate());
           generateReps(chore, today.getFullYear(), today.getMonth() + 1);
-          return;
-        }
-      })
+          return; }})
       .then(() => {
-        res.status(200).end();
-      })
+        res.status(200).end();})
       .catch(err => {
         console.error(err);
-        res.status(500).json(err);
-      });
-  },
+        res.status(500).json(err);});},
 
   update(req, res) {
     db.Chore.update({
@@ -87,42 +82,27 @@ module.exports = {
       repeats: req.body.repeats,
       repeated_days: req.body.repeated_days,
       UserId: req.body.UserId,
-    }, {
-      where: { id: req.query.id }
-    })
+    },
+     {  where: { id: req.query.id }  })
       .then(() => res.status(200).end())
       .catch(err => {
         console.log(err);
-        res.status(500).end();
-      });
-  },
+        res.status(500).end(); });},
 
   deactivate(req, res) {
     db.Chore.update({
-      active: false
-    }, {
-      where: { id: req.query.id }
-    })
+      active: false }, {
+      where: { id: req.query.id } })
       .then(() => {
-        res.status(200).end()
-      })
+        res.status(200).end()   })
       .catch(err => {
         console.log(err);
-        res.status(500).end();
-      });
-  }, 
+        res.status(500).end(); }); }, 
   remove(req, res) {
       db.Chore.destroy({
-        where: { id: req.query.id }
-      })
+        where: { id: req.query.id }  })
       .then(() => {
-        res.status(200).end()
-      })
+        res.status(200).end() })
       .catch(err => {
         console.log(err);
-        res.status(500).end();
-      });
-    
-
-  }
-}
+        res.status(500).end(); });  }}

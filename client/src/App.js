@@ -13,9 +13,8 @@ import refreshUserData from "./utils/refreshUserData";
 
 function App() {
   const [state, dispatch] = useChoreContext();
-
-  // load user data on app load
   useEffect(() => refreshUserData(dispatch), [dispatch]);
+<<<<<<< Updated upstream
 
   return (
     <Router>
@@ -27,23 +26,23 @@ function App() {
               // in the case where the user is logged in, reroute away fron login or signup
               <Switch>
                 <Redirect exact path={["*/", "/login"]} to="/dashboard" />
+=======
+  return (  <Router>
+      <Navbar />
+        <div style={{ marginBottom: 50 }}>
+          {   state.username ?<Switch>
+                <Redirect exact path={["/", "/login"]} to="/dashboard" />
+>>>>>>> Stashed changes
                 <Redirect exact path="/signup" to="/household" />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/household" component={Household} />
                 <Route exact path="/chores" component={Chores} />
               </Switch> :
-              // in the case where the user is not logged in, reroute to login
               <Switch>
                 <Redirect exact path={["/", "/dashboard", "/household", "/chores"]} to="/login" />
                 <Redirect exact path="/" to="/login" />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/signup" component={SignUp} />
-              </Switch>
-          }
-        </div>
-        <Footer/>
-    </Router>
-  );
-}
+              </Switch>   } </div>    <Footer/>   </Router>);}
 
 export default App;
