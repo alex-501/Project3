@@ -21,7 +21,7 @@ function Navbar() {
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <Link className="navbar-brand p-0 logo-text" to="/">
                 <img src="../img/project3.png" style={{ height: "55px" }} className="d-inline-block logo" alt="logo" />
-                Chore Hack
+                Chore Chart
             </Link>
             {
             state.username ? 
