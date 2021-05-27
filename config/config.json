@@ -1,24 +1,24 @@
 {
   "development": {
-    "username": "b7f5fc9eeef1e0",
-    "password": "873543d7",    
-    "database": "heroku_10903362d553ad5",
+    "username": "root",
+    "password": "$$Yumaaz1996$$",    
+    "database": "chore_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
-    "username": "b7f5fc9eeef1e0",
-    "password": "873543d7",    
-    "database": "heroku_10903362d553ad5",
-    "port": 3306,
+    "username": "root",
+    "password": "$$Yumaaz1996$$",    
+    "database": "chore_db",
+    "port": 5000,
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "username": "b7f5fc9eeef1e0",
-    "password": "873543d7",    
-    "database": "heroku_10903362d553ad5",
-    "host": "us-cdbr-east-03.cleardb.com",
+    "username": "root",
+    "password": "$$Yumaaz1996$$",    
+    "database": "chores_db",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   }
 }

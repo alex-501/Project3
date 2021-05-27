@@ -7,6 +7,7 @@ import Calendar from "../components/calendarr/demo"
 
 
 const Dashboards = () => {
+    console.log("Dashboard");
     return (
         <Container fluid>
             <ToDoTable />

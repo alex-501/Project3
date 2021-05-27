@@ -17,6 +17,7 @@ function App() {
   // load user data on app load
   useEffect(() => refreshUserData(dispatch), [dispatch]);
 
+
   return (
     <Router>
       <Navbar />
@@ -26,7 +27,7 @@ function App() {
             state.username ?
               // in the case where the user is logged in, reroute away fron login or signup
               <Switch>
-                <Redirect exact path={["*/", "/login"]} to="/dashboard" />
+                <Redirect exact path={["/", "/login"]} to="/dashboard" />
                 <Redirect exact path="/signup" to="/household" />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/household" component={Household} />
