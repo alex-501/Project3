@@ -34,25 +34,18 @@ function ToDoTable() {
         console.log(err);
       });
   };
-
-  // only show a single upcoming repetition for each chore
-  useEffect(() => {
+useEffect(() => {
     const tempFilteredReps = [];
     const today = new Date();
-    today.setHours(0, 0, 0, 0); // we want to include repets due at any time today
+    today.setHours(0, 0, 0, 0);
     const usedChores = {};
 
     for (let i = 0; i < state.repetitions.length; i++) {
-      // check if we've listed this chore yet
-      if (!usedChores[state.repetitions[i].ChoreId]) {
-        // check if the due date is in the future
+     if (!usedChores[state.repetitions[i].ChoreId]) {
         let dueDate = new Date(state.repetitions[i].due_date);
         if (dueDate >= today) {
           tempFilteredReps.push(state.repetitions[i]);
-          usedChores[state.repetitions[i].ChoreId] = true;
-        }
-      }
-    }
+          usedChores[state.repetitions[i].ChoreId] = true; }}}
 
     setFilteredReps(tempFilteredReps);
   }, [state.repetitions]);
@@ -69,22 +62,13 @@ function ToDoTable() {
           </Tab>
         </Tabs>
       </div>
-    </Container>
-
-  );
-}
+    </Container> );}
 
 function HouseholdReps(props) {
   return (
-    <Repetitions reps={props.reps} onComplete={props.onComplete} />
-  );
-}
+    <Repetitions reps={props.reps} onComplete={props.onComplete} /> );}
 
 function UserReps(props) {
   const [state] = useChoreContext();
-  return (
-    <Repetitions reps={props.reps.filter((repetition) => repetition.UserId === state.userId)} onComplete={props.onComplete} />
-  );
-}
-
+  return (  <Repetitions reps={props.reps.filter((repetition) => repetition.UserId === state.userId)} onComplete={props.onComplete} /> );}
 export default ToDoTable;

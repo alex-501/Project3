@@ -1,4 +1,4 @@
-const db = require("../models")
+const db = require("../models");
 function generateReps(chore, year, month, startDate=1) {
   const selectedDays = JSON.parse(chore.repeated_days);
   let date = new Date(year, month, startDate);

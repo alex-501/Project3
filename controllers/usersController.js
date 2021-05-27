@@ -1,4 +1,4 @@
-const db = require("../models")
+const db = require("../models");
 
 module.exports = {
   signup(req, res) {
@@ -23,52 +23,37 @@ module.exports = {
         res.status(401).send(err.name);
       });
   },
-  login(req, res) {
-    // passport.authenticate should be used as middleware before this function
-    if (req.user) {
-      res.status(200).end();
-    } else {
-      res.status(401).end();
-    }
-  },
+  login(req, res) {if (req.user) {
+      res.status(200).end(); } else {
+      res.status(401).end();}},
   logout(req, res) {
     req.logout();
-    res.redirect("/");
-  },
-  getUserData(req, res) { // for getting the name of the currently logged in user
+    res.redirect("/");},
+  getUserData(req, res) { 
     if (req.user) {
       db.User.findOne({ where: { id: req.user.id } })
         .then(user => {
           res.json({
             name: user.name,
-            id: user.id
-          }); // return the user's name
-        })
+            id: user.id  });        })
         .catch(err => {
           console.log(err);
-          res.json(""); // the user wasn't found
+          res.json(""); 
         });
     } else {
-      res.json(""); // no user is logged in
+      res.json(""); 
     }
   },
 
   updateColor(req, res) {
     if (!req.user) {
-      return res.status(401).end(); // not logged in
-    }
+      return res.status(401).end();    }
 
     db.User.update({
-      color: req.query.color
-    }, {
-      where: { id: req.user.id }
-    })
+      color: req.query.color }, {
+      where: { id: req.user.id } })
       .then(() => {
-        res.status(200).end();
-      })
+        res.status(200).end();  })
       .catch(err => {
         console.log(err);
-        res.status(500).end();
-      });
-  }
-}
+        res.status(500).end();  }); }}

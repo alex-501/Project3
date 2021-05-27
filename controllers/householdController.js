@@ -6,14 +6,11 @@ module.exports = {
     if (!req.user) {
       return res.status(401).end();
     }
-
-    // for getting household data (name, invite_code, members)
     db.Household.findOne({
       where: { id: req.user.HouseholdId },
       include: db.User,
     })
       .then(household => {
-        // console.log(household);
         return res.json({
           name: household.name,
           invite_code: household.invite_code,
@@ -27,7 +24,6 @@ module.exports = {
   },
 
   findMembers(req, res) {
-    // console.log(req.query);
     db.User.findAll({ where: { HouseholdId: req.user.HouseholdId } })
       .then(data => res.json(
         data.map((row) => ({
@@ -53,12 +49,12 @@ module.exports = {
 
   joinHousehold(req, res) {
       if (!req.user) {
-        return res.status(401).end(); // not logged in
+        return res.status(401).end();
       }
       db.Household.findOne({ where: { invite_code: req.query.invite } })
         .then(household => {
           if (!household) {
-            res.status(403).end(); // incorrect invite code
+            res.status(403).end(); 
           } else {
             db.User.update({
               HouseholdId: household.id,
@@ -66,17 +62,14 @@ module.exports = {
               where: { id: req.user.id }
             })
               .then(() => {
-                res.status(200).end(); // success
-              })
+                res.status(200).end();               })
               .catch(err => {
                 console.log(err);
-                res.status(500).end(); // unknown error when trying to change user household
-              });
+                res.status(500).end();});
           }
         })
         .catch(err => {
           console.log(err);
-          res.status(500).end(); // unknown error when tryiing to find household
-        });
+          res.status(500).end(); });
   }
 }

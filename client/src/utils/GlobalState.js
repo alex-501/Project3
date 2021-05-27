@@ -1,16 +1,10 @@
 import React, { createContext, useReducer, useContext } from "react";
 import {
-    UPDATE_USERNAME,
-    UPDATE_HOUSEHOLD,
-    UPDATE_MEMBERS,
-    UPDATE_CHORES,
-    UPDATE_CHORE,
-    ADD_CHORE,
-    REMOVE_CHORE,
-    UPDATE_REPETITIONS,
-    COMPLETE_REPETITION,
-    UNDO_REPETITION
-
+    UPDATE_USERNAME, UPDATE_HOUSEHOLD,
+    UPDATE_MEMBERS,    UPDATE_CHORES,
+    UPDATE_CHORE,    ADD_CHORE,
+    REMOVE_CHORE,    UPDATE_REPETITIONS,
+    COMPLETE_REPETITION,    UNDO_REPETITION
 } from './actions';
 
 const ChoreContext = createContext();

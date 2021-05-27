@@ -8,34 +8,21 @@ module.exports = {
         model: db.Chore,
         where:{
           HouseholdId: req.user.HouseholdId,
-          active: true,
-        }
-      }],
+          active: true, } }],
       order: [
-        ['due_date', 'ASC'],
-      ]
-    })
+        ['due_date', 'ASC'], ] })
       .then(data => res.json(
-        data.map(row => row.dataValues)
-      ))
+        data.map(row => row.dataValues)  ))
       .catch(err => {
         console.log(err);
-        res.status(500).end();
-      });
-  },
-
+        res.status(500).end();});},
   update(req, res) {
     db.Repetition.update({
-      //due_date: req.body.due_date,
       complete: req.body.complete,
     }, {
-      where: { id: req.query.id }
-    })
+      where: { id: req.query.id } })
       .then(() => res.json({}))
       .catch(err => {
         console.log(err);
-        res.status(500).end();
-      });
-  }
-
+        res.status(500).end(); });  }
 }

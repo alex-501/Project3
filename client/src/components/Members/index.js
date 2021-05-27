@@ -1,6 +1,6 @@
 import React from 'react';
 import "./style.css";import { Container, Table } from "react-bootstrap";
-import { useChoreContext } from "../../utils/GlobalState"
+import { useChoreContext } from "../../utils/GlobalState";
 const Members = () => {
     const state = useChoreContext()[0]
     return (

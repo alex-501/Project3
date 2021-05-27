@@ -1,4 +1,4 @@
-import React from 'react';import Modal from 'react-bootstrap/Modal'
+import React from 'react';import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';import MyVerticallyCenteredModal from 'react-bootstrap/MyVerticallyCenteredModal';
 function inviteModal(props) {
     return (
