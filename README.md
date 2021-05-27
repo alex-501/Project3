@@ -1,7 +1,5 @@
-# Chore Hack
-
-
-![Web Screenshot](./client/public/img/WireFrame1.gif)
+![Screenshot (239)](https://user-images.githubusercontent.com/68447140/119772117-8a8dd700-be73-11eb-9b90-ce53e18e722f.png)
+![Screenshot (240)](https://user-images.githubusercontent.com/68447140/119772138-91b4e500-be73-11eb-93d8-9159b3effea7.png)
 
 
 ## Table of Content
@@ -12,22 +10,25 @@
 - Technologies
 - Authors
 
-## Objective
-
-Our goal was to create an application that allows users to easily track chores within a multi-person household. The application allows users to link their accounts by sharing an invite code. Users can then create one-time or repeating chores, assign them to a member of their household, view chores on a to-do list and a calendar, mark chores as complete on the to-do list, and view completion statistics for themselves and other members of their household.
-
+## Technologies
+* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScrip)
+* [Heroku](https://www.heroku.com/)
+* [MySQL](https://www.mysql.com/)
+* [Express](https://expressjs.com/)
+* [React](https://reactjs.org/)
+* [Node.js](https://nodejs.org/en/)
+* [Sequelize](https://sequelize.org/)
+* [Passport.js](http://www.passportjs.org/)
+* [Axios](https://www.npmjs.com/package/axios)
+* [React-Color](https://casesandberg.github.io/react-color/)
+* [React-Scheduler](https://devexpress.github.io/devextreme-reactive/react/scheduler/docs/guides/fundamentals/)
 ## Deployed Link
-
-* [chore-hack.herokuapp.com](https://chore-hack.herokuapp.com/)
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-```
-$ git clone git@github.com:liza-p/project-3.git
-liza-p/project-3.git
-$ cd liza-p/project-3.git
-```
 
 Then open in your preferred text editor:
 - [vim](https://www.vim.org/) 
@@ -80,17 +81,3 @@ state.username ?
   </Switch>
 ```
 
-## Technologies
-* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
-* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
-* [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScrip)
-* [Heroku](https://www.heroku.com/)
-* [MySQL](https://www.mysql.com/)
-* [Express](https://expressjs.com/)
-* [React](https://reactjs.org/)
-* [Node.js](https://nodejs.org/en/)
-* [Sequelize](https://sequelize.org/)
-* [Passport.js](http://www.passportjs.org/)
-* [Axios](https://www.npmjs.com/package/axios)
-* [React-Color](https://casesandberg.github.io/react-color/)
-* [React-Scheduler](https://devexpress.github.io/devextreme-reactive/react/scheduler/docs/guides/fundamentals/)
