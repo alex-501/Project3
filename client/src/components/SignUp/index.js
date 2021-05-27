@@ -1,62 +1,40 @@
 import React, { useRef, useState } from 'react';
-import "./SignUp.css";
-import ErrorMessage from "../ErrorMessage";
-import API from "../../utils/API";
-import { Card } from 'react-bootstrap';
-import { useChoreContext } from "../../utils/GlobalState";
-import refreshUserData from "../../utils/refreshUserData";
-import { TwitterPicker } from "react-color";
-
+import "./SignUp.css";import ErrorMessage from "../ErrorMessage";
+import API from "../../utils/API";import { Card } from 'react-bootstrap';
+import { useChoreContext } from "../../utils/GlobalState";import refreshUserData from "../../utils/refreshUserData";import { TwitterPicker } from "react-color";
 function SignUpForm() {
     const [color, setColor] = useState();
     const handleChange = color => setColor(color);
-
     const dispatch = useChoreContext()[1];
-
-    const nameRef = useRef();
-    const emailRef = useRef();
+    const nameRef = useRef();    const emailRef = useRef();
     const passwordRef = useRef();
-
     const [error, setError] = useState(null);
-
     const handleSubmit = event => {
         event.preventDefault();
-
         if (!nameRef.current.value || !emailRef.current.value || !passwordRef.current.value) {
             setError("Missing a required field.");
             passwordRef.current.value = "";
-            return;
-        }
-
+            return; }
         API.signup(nameRef.current.value, emailRef.current.value, passwordRef.current.value, color.hex)
             .then(response => {
                 setError(null);
                 console.log(response);
-                refreshUserData(dispatch);
-            })
+                refreshUserData(dispatch);     })
             .catch(err => {
-                if (!err.response) {
+    if (!err.response) {
                     setError("Unable to connect to the server.");
-                } else if (err.response.data === "SequelizeValidationError") {
-                    setError("Please enter a valid email address.");
+                } else if (err.response.data === "SequelizeValidationError") {          setError("Please enter a valid email address.");
                 } else if (err.response.data === "SequelizeUniqueConstraintError") {
-                    setError("This email address is already associated with an account.");
-                } else {
-                    setError("An unknown error occurred.");
-                }
-                passwordRef.current.value = "";
-                console.log(err);
-            })
-    }
-
+                    setError("This email address is already associated with an account.");      
+                  } else {              setError("An unknown error occurred.");
+                }        passwordRef.current.value = "";         console.log(err);     })}
     return (
-
         <Card className="text-white rounded-0" style={{ margin: '0px' }}>
             <Card.Img src={process.env.PUBLIC_URL + "/img/hero-img.jpg"} alt="Card image" />
             <Card.ImgOverlay className="rounded-0">
                 {/* <Card.Text> */}
                 <Card body style={{ opacity: 0.9, marginTop: '60px', marginLeft: '90px', marginRight: '90px' }}>
-                    <form className="mt-3 rounded">
+             <form className="mt-3 rounded">
                         <ErrorMessage message={error} />
                         <div className="form-group">
                             <label htmlFor="inputName">Display Name</label>
@@ -65,18 +43,17 @@ function SignUpForm() {
                         </div>
                         <div className="form-group">
                             <label htmlFor="inputName">Display Color</label>
-                            <TwitterPicker color={color} onChangeComplete={handleChange} />
+                 <TwitterPicker color={color} onChangeComplete={handleChange} />
                             <small id="nameHelp" className="form-text text-muted">This will be your color for calendar and chore events</small>
                         </div>
                         <div className="form-group">
                             <label htmlFor="inputEmail">Email Address</label>
                             <input type="email" className="form-control" id="inputEmail" aria-describedby="emailHelp" ref={emailRef} />
                             <small id="emailHelp" className="form-text text-muted">This will be used to login to Chore Hacker.</small>
-                        </div>
+                   </div>
                         <div className="form-group">
                             <label htmlFor="inputPassword">Create Password</label>
-                            <input type="password" className="form-control" id="inputPassword" ref={passwordRef} />
-                        </div>
+                            <input type="password" className="form-control" id="inputPassword" ref={passwordRef} />    </div>
                         <div className="form-group form-check">
                             <input type="checkbox" className="form-check-input" id="exampleCheck1" />
                             <label className="form-check-label" htmlFor="exampleCheck1">Agree to Terms and Conditions</label>
@@ -86,9 +63,5 @@ function SignUpForm() {
                 </Card >
                 {/* </Card.Text> */}
             </Card.ImgOverlay>
-        </Card>
-
-    );
-}
-
+        </Card>);}
 export default SignUpForm;

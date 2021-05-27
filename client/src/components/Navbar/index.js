@@ -1,9 +1,6 @@
-import React from "react";
-import { NavLink, Link } from "react-router-dom";
-import API from "../../utils/API";
-import { Button } from 'react-bootstrap';
-import { useChoreContext } from "../../utils/GlobalState";
-import refreshUserData from "../../utils/refreshUserData";
+import React from "react";import { NavLink, Link } from "react-router-dom";
+import API from "../../utils/API"; import { Button } from 'react-bootstrap';
+import { useChoreContext } from "../../utils/GlobalState"; import refreshUserData from "../../utils/refreshUserData";
 import "./style.css";
 
 function Navbar() {
@@ -26,15 +23,16 @@ function Navbar() {
             {
             state.username ? 
                 <>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <NavLink className="nav-link" activeClassName="active" to="/dashboard" >Dashboard</NavLink>
-                            </li>
-                            <li className="nav-item">
+                                
+                                                            <NavLink className="nav-link" activeClassName="active" to="/dashboard" >Dashboard</NavLink>
+                    </li>
+                <li className="nav-item">
                                 <NavLink className="nav-link" activeClassName="active" to="/household">Manage Household</NavLink>
                             </li>
                             <li className="nav-item">
@@ -49,12 +47,5 @@ function Navbar() {
                     <div className="collapse navbar-collapse" />
                     <div>
                         <Link to="/login" className="mr-3">Log in</Link>
-                        <Link to="/signup"><Button variant="primary">Sign up</Button></Link>
-                    </div>
-                </>
-            }
-        </nav>
-    )
-}
-
+                        <Link to="/signup"><Button variant="primary">Sign up</Button></Link>  </div>      </>}        </nav> )}
 export default Navbar;

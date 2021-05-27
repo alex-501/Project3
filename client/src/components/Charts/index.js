@@ -1,5 +1,4 @@
 import React from "react";
-// import Chart from "../Chart";
 import BarChart from "../BarChart";
 import "./style.css"
 
