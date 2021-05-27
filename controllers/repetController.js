@@ -1,24 +1,28 @@
 const db = require("../models")
-module.exports = {  findAll(req, res) {
+
+module.exports = {
+
+  findAll(req, res) {
     db.Repetition.findAll({
       include: [{
         model: db.Chore,
         where:{
           HouseholdId: req.user.HouseholdId,
-          active: true,
-        }}],
+          active: true, } }],
       order: [
-        ['due_date', 'ASC'], ]})
+        ['due_date', 'ASC'], ] })
       .then(data => res.json(
-        data.map(row => row.dataValues)))
-      .catch(err => {    console.log(err);
-        res.status(500).end(); });},
-
+        data.map(row => row.dataValues)  ))
+      .catch(err => {
+        console.log(err);
+        res.status(500).end();});},
   update(req, res) {
     db.Repetition.update({
-      complete: req.body.complete,}, {
-      where: { id: req.query.id }})
+      complete: req.body.complete,
+    }, {
+      where: { id: req.query.id } })
       .then(() => res.json({}))
       .catch(err => {
         console.log(err);
-        res.status(500).end(); }); }}
+        res.status(500).end(); });  }
+}

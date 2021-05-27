@@ -1,6 +1,6 @@
 import {Pie} from 'react-chartjs-2';
-import React, {Component} from 'react'
-import "./style.css"
+import React, {Component} from 'react';
+import "./style.css";
 
 class Chart extends Component {
 

@@ -1,7 +1,6 @@
 import React from "react";
-// import Chart from "../Chart";
 import BarChart from "../BarChart";
-import "./style.css"
+import "./style.css";
 
 function Charts() {
   return ( <div id="me" className="jumbotron jumbotron-fluid">

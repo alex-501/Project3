@@ -1,9 +1,5 @@
-import React from 'react';
-import Modal from 'react-bootstrap/Modal'
-import Button from 'react-bootstrap/Button';
-import MyVerticallyCenteredModal from 'react-bootstrap/MyVerticallyCenteredModal';
-
-
+import React from 'react';import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';import MyVerticallyCenteredModal from 'react-bootstrap/MyVerticallyCenteredModal';
 function inviteModal(props) {
     return (
       <Modal
@@ -29,10 +25,8 @@ function inviteModal(props) {
       </Modal>
     );
   }
-  
   function App() {
     const [modalShow, setModalShow] = React.useState(false);
-  
     return (
       <>
         <Button variant="primary" onClick={() => setModalShow(true)}>
@@ -43,10 +37,6 @@ function inviteModal(props) {
           show={modalShow}
           onHide={() => setModalShow(false)}
         />
-      </>
-    );
-  }
-  
+      </>); }
   render(<App />);
-
   export default inviteModal;

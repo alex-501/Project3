@@ -9,13 +9,16 @@
   "test": {
     "username": "root",
     "password": "$$Yumaaz1996$$",    
-    "database": "database_test",
-    "port": 3301,
+    "database": "chore_db",
+    "port": 5000,
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "use_env_variable": "JAWSDB_URL",
+    "username": "root",
+    "password": "$$Yumaaz1996$$",    
+    "database": "chores_db",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   }
 }

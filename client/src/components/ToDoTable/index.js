@@ -6,16 +6,24 @@ import { useChoreContext } from "../../utils/GlobalState";
 import { UPDATE_REPETITIONS } from "../../utils/actions";
 import API from "../../utils/API";
 import { Container } from "react-bootstrap";
+
+
 function ToDoTable() {
+
   const [state, dispatch] = useChoreContext();
   const [filteredReps, setFilteredReps] = useState([]);
+
   const loadRepetitions = () => {
+
     API.getAllRepetitions()
       .then(res => {
-        dispatch({ type: UPDATE_REPETITIONS, repetitions: res.data });   })
+        dispatch({ type: UPDATE_REPETITIONS, repetitions: res.data });
+      })
       .catch(err => {
         console.log(err);
-        dispatch({ type: UPDATE_REPETITIONS, repetitions: [] });  }); }
+        dispatch({ type: UPDATE_REPETITIONS, repetitions: [] });
+      });
+  }
 
   const setCompleted = (repId, complete) => {
     API.completeRepetition(repId, complete)
@@ -24,42 +32,43 @@ function ToDoTable() {
       })
       .catch(err => {
         console.log(err);
-      }); };
+      });
+  };
 useEffect(() => {
     const tempFilteredReps = [];
     const today = new Date();
-    today.setHours(0, 0, 0, 0); 
+    today.setHours(0, 0, 0, 0);
     const usedChores = {};
 
     for (let i = 0; i < state.repetitions.length; i++) {
-      if (!usedChores[state.repetitions[i].ChoreId]) {
+     if (!usedChores[state.repetitions[i].ChoreId]) {
         let dueDate = new Date(state.repetitions[i].due_date);
         if (dueDate >= today) {
           tempFilteredReps.push(state.repetitions[i]);
-          usedChores[state.repetitions[i].ChoreId] = true;   }  } }
+          usedChores[state.repetitions[i].ChoreId] = true; }}}
 
     setFilteredReps(tempFilteredReps);
- }, [state.repetitions]);
+  }, [state.repetitions]);
 
   return (
     <Container style={{ marginBottom: 25 }} >
       <div className=" border rounded" >
-   <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-    <Tab eventKey="home" title="Your Chores">
-   <UserReps onComplete={setCompleted} reps={filteredReps} />
-       </Tab>
-       <Tab eventKey="profile" title="Household's Chores">
-   <HouseholdReps onComplete={setCompleted} reps={filteredReps} />
+        <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
+          <Tab eventKey="home" title="Your Chores">
+            <UserReps onComplete={setCompleted} reps={filteredReps} />
           </Tab>
-    </Tabs>
+          <Tab eventKey="profile" title="Household's Chores">
+            <HouseholdReps onComplete={setCompleted} reps={filteredReps} />
+          </Tab>
+        </Tabs>
       </div>
-    </Container>);}
+    </Container> );}
 
 function HouseholdReps(props) {
-  return ( <Repetitions reps={props.reps} onComplete={props.onComplete} /> );}
+  return (
+    <Repetitions reps={props.reps} onComplete={props.onComplete} /> );}
 
 function UserReps(props) {
   const [state] = useChoreContext();
-  return (   <Repetitions reps={props.reps.filter((repetition) => repetition.UserId === state.userId)} onComplete={props.onComplete} /> );}
-
+  return (  <Repetitions reps={props.reps.filter((repetition) => repetition.UserId === state.userId)} onComplete={props.onComplete} /> );}
 export default ToDoTable;

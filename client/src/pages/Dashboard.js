@@ -4,6 +4,7 @@ import Charts from "../components/Charts";
 import { Container } from "../components/Grid";
 import Calendar from "../components/calendarr/demo"
 const Dashboards = () => {
+    console.log("Dashboard");
     return (
         <Container fluid>
             <ToDoTable />

@@ -18,21 +18,9 @@ Our goal was to create an application that allows users to easily track chores w
 
 ## Deployed Link
 
-* [chore-hack.herokuapp.com](https://chore-hack.herokuapp.com/)
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-```
-$ git clone git@github.com:liza-p/project-3.git
-liza-p/project-3.git
-$ cd liza-p/project-3.git
-```
-
-Then open in your preferred text editor:
-- [vim](https://www.vim.org/) 
-- [emmacs](https://www.gnu.org/software/emacs/)
-- [visual studio code](https://code.visualstudio.com/) 
 
 To install dependencies, run this command.
 

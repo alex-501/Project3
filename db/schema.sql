@@ -1,1 +1,1 @@
-CREATE DATABASE chore_db;
+CREATE DATABASE chores_db;

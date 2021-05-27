@@ -1,31 +1,18 @@
-const db = require("../models")
-
-// helper function to generate repetitions for a single chore through the end of the given month (indexed from 0)
+const db = require("../models");
 function generateReps(chore, year, month, startDate=1) {
-  // get days to use
   const selectedDays = JSON.parse(chore.repeated_days);
-  // create initial date
   let date = new Date(year, month, startDate);
-  date.setUTCHours(8); // set an hour that has correct date with PDT and PST
-  // while within the same month
-  while (date.getMonth() === month) {
-    // if the week day is on the list
+  date.setUTCHours(8); 
+    while (date.getMonth() === month) {
     if (selectedDays[date.getDay()]) {
-      // add the chore
-      db.Repetition.create({
+       db.Repetition.create({
         due_date: date,
         ChoreId: chore.id,
-        UserId: chore.UserId,
-      });
-    }
-    // increment the date
-    date = new Date(year, month, date.getDate() + 1);
-    date.setUTCHours(8);
-  }
-}
+        UserId: chore.UserId, });  }
+     date = new Date(year, month, date.getDate() + 1);
+    date.setUTCHours(8); }}
 
 module.exports = {
-
   findAll(req, res) {
     db.Chore.findAll({
       include: [db.Repetition],
@@ -58,7 +45,6 @@ module.exports = {
       UserId: req.body.UserId,
     })
       .then(chore => {
-        // generate a single repetition for one-time chores
         if (!req.body.repeats) {
           return db.Repetition.create({
             due_date: req.body.dueDate,
